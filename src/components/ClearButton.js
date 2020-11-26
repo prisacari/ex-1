@@ -1,9 +1,6 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../contexts/AppContext'
+import React from 'react'
 
-const ClearButton = () => {
-  const { clear } = useContext(AppContext)
-
+const ClearButton = ({ clear }) => {
   return <button onClick={clear}>Clear</button>
 }
 

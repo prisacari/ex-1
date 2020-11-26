@@ -1,7 +1,6 @@
-import { useState, useContext, memo } from 'react'
-import { AppContext } from '../contexts/AppContext'
+import { useState, memo } from 'react'
 
-const Label = ({ name, id, handleChangeName }) => {
+const Label = memo(({ name, id, handleChangeName }) => {
   const [editMode, setEditMode] = useState(false)
   const [fieldName, setName] = useState(name)
 
@@ -37,12 +36,10 @@ const Label = ({ name, id, handleChangeName }) => {
       <label htmlFor={id}>{name}</label> <button onClick={toggle}>edit</button>
     </>
   )
-}
+})
 
 const Input = memo(
-  ({ id, name, value }) => {
-    const { handleChangeName, handleChangeValue } = useContext(AppContext)
-
+  ({ id, name, value, handleChangeName, handleChangeValue }) => {
     const handleChange = value => {
       handleChangeValue({ value, id })
     }

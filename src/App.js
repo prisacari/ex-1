@@ -5,15 +5,26 @@ import ClearButton from './components/ClearButton'
 import Input from './components/Input'
 
 const App = () => {
-  const { fields } = useContext(AppContext)
+  const {
+    fields,
+    submit,
+    clear,
+    handleChangeName,
+    handleChangeValue
+  } = useContext(AppContext)
 
   return (
     <div className='App'>
       {fields.map(item => (
-        <Input {...item} key={item.id} />
+        <Input
+          {...item}
+          handleChangeName={handleChangeName}
+          handleChangeValue={handleChangeValue}
+          key={item.id}
+        />
       ))}
       <br />
-      <SaveButton /> <ClearButton />
+      <SaveButton submit={submit} /> <ClearButton clear={clear} />
     </div>
   )
 }

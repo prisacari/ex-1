@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
-import { AppContext } from '../contexts/AppContext'
+import React from 'react'
 
-const SaveButton = () => {
-  const { submit } = useContext(AppContext)
+const SaveButton = ({submit}) => {
   return <button onClick={submit}>Submit</button>
 }
 
